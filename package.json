@@ -1,0 +1,68 @@
+{
+	"private": false,
+	"name": "@jjuidev/esm-package-json",
+	"version": "1.0.0",
+	"description": "A utility package for working with ESM package.json files",
+	"type": "module",
+	"author": {
+		"name": "jjuidev",
+		"email": "jjuidev@gmail.com"
+	},
+	"license": "MIT",
+	"keywords": [
+		"esm",
+		"package-json",
+		"nodejs",
+		"typescript",
+		"cli"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jjuidev/esm-package-json.git"
+	},
+	"homepage": "https://github.com/jjuidev/esm-package-json#readme",
+	"bugs": {
+		"url": "https://github.com/jjuidev/esm-package-json/issues"
+	},
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/esm/index.js"
+			},
+			"require": {
+				"types": "./dist/types/index.d.ts",
+				"default": "./dist/cjs/index.cjs"
+			}
+		}
+	},
+	"main": "./dist/cjs/index.cjs",
+	"module": "./dist/esm/index.js",
+	"types": "./dist/types/index.d.ts",
+	"bin": {
+		"esm-package-json": "./dist/cjs/index.cjs"
+	},
+	"files": [
+		"dist/"
+	],
+	"scripts": {
+		"build": "tsup",
+		"ncu": "ncu",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"commander": "latest",
+		"fs-extra": "latest"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "latest",
+		"@types/node": "latest",
+		"esbuild-plugin-file-path-extensions": "latest",
+		"tsup": "latest",
+		"typescript": "latest",
+		"npm-check-updates": "latest"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	}
+}
